@@ -140,10 +140,7 @@ const PracticePage = () => {
   }, [selectedTopic]);
 
   const requestUserName = () => {
-    let name = prompt("Enter your name:");
-    while (!name) name = prompt("Please enter a valid name:");
-    Cookies.set("username", name, { expires: 7 });
-    setUsername(name);
+ 
   };
 
   const generatePeriodicQuiz = () => {
