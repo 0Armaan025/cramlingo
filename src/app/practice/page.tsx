@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, JSX } from "react";
 import { motion } from "framer-motion";
 import { FiBook,  FiGrid, FiShuffle } from "react-icons/fi";
 import Cookies from "js-cookie";
@@ -112,11 +112,11 @@ const PracticePage = () => {
   const [topics, setTopics] = useState(Object.keys(icons));
   const [selectedTopic, setSelectedTopic] = useState(topics[0]);
   const [username, setUsername] = useState<string | null>("");
-  const [quiz, setQuiz] = useState("");
+  const [quiz, setQuiz] = useState();
   const [answerInput, setAnswerInput] = useState("");
   const [feedback, setFeedback] = useState<string | null>("");
   const [elements, setElements] = useState<{ num: number; symbol: string; name: string; valency: number }[]>([]);
-  const [dispersionGame, setDispersionGame] = useState<{ item: string; phase: string; medium: string } | null>("");
+  const [dispersionGame, setDispersionGame] = useState<{ item: string; phase: string; medium: string } | null>();
   const [selectedPhase, setSelectedPhase] = useState("");
   const [selectedMedium, setSelectedMedium] = useState("");
   const [valencyQuiz, setValencyQuiz] = useState<{ name: string; valency: number } | null>("");
