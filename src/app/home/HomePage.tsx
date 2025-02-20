@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from "next/link";
 
 type Props = {};
 
@@ -39,7 +40,7 @@ const HomePage = (props: Props) => {
         It&rsquo;s chemistry, help! 😭
           </motion.h4>
 
-          {/* Start Button */}
+          <Link href="/practice">
           <motion.button
             className="mt-6 px-6 py-3 bg-[#010b0c] text-white rounded-full text-lg font-semibold hover:bg-gray-900 transition-colors flex items-center shadow-md"
             initial={{ opacity: 0, y: 20 }}
@@ -50,6 +51,7 @@ const HomePage = (props: Props) => {
           >
             Start Cramming 😭
           </motion.button>
+          </Link>
         </div>
 
         {/* Image Section */}
