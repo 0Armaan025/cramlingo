@@ -108,20 +108,24 @@ const SortableItem = ({ id, symbol }: { id:string,  symbol: string }) => {
   );
 };
 
+type Quiz = {
+  question: string;
+  answer: string;
+};
 const PracticePage = () => {
   const [topics, setTopics] = useState(Object.keys(icons));
   const [selectedTopic, setSelectedTopic] = useState(topics[0]);
   const [username, setUsername] = useState<string | null>("");
-  const [quiz, setQuiz] = useState();
+  const [quiz, setQuiz] = useState<Quiz | null>(null);
   const [answerInput, setAnswerInput] = useState("");
   const [feedback, setFeedback] = useState<string | null>("");
   const [elements, setElements] = useState<{ num: number; symbol: string; name: string; valency: number }[]>([]);
-  const [dispersionGame, setDispersionGame] = useState<{ item: string; phase: string; medium: string } | null>();
+  const [dispersionGame, setDispersionGame] = useState<{ item: string; phase: string; medium: string; type: string } | null>();
   const [selectedPhase, setSelectedPhase] = useState("");
   const [selectedMedium, setSelectedMedium] = useState("");
-  const [valencyQuiz, setValencyQuiz] = useState<{ name: string; valency: number } | null>("");
-  const [selectedValency, setSelectedValency] = useState("");
-  const [compoundQuiz, setCompoundQuiz] = useState("");
+  const [valencyQuiz, setValencyQuiz] = useState<{ name: string; valency: number } | null>(null);
+  const [selectedValency, setSelectedValency] = useState<string | number>("");
+  const [compoundQuiz, setCompoundQuiz] = useState<{ name: string; status: string; valency: number } | null>(null);
   const [selectedPositive, setSelectedPositive] = useState("");
   const [valency, setValency] = useState("");
   const [selectedNegative, setSelectedNegative] = useState("");
@@ -160,8 +164,8 @@ const PracticePage = () => {
 
   const generateValencyQuiz = () => {
     
-      setCompoundQuiz(compounds[Math.floor(Math.random() * compounds.length)]);
-      setValencyQuiz("");
+      setCompoundQuiz(compounds[Math.floor(Math.random() * compounds.length)] as { name: string; status: string; valency: number });
+      setValencyQuiz(null);
 
   };
 
